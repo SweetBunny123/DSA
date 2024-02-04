@@ -1,0 +1,26 @@
+{
+  "files": {
+    "codeforces/haunted_house.cpp": [
+      {
+        "id": "742c44d7-14eb-4b10-bfa3-a9a5188ce468",
+        "line": 1,
+        "version": 711,
+        "index": 0
+      }
+    ],
+    "merge.sort": [
+      {
+        "id": "c1f4e9f6-dba2-4f38-9000-339cb0072cbe",
+        "line": 1,
+        "version": 510,
+        "index": 0
+      },
+      {
+        "id": "23426cd8-74df-4d55-9270-e85400a993e1",
+        "line": 2,
+        "version": 510,
+        "index": 24
+      }
+    ]
+  }
+}
