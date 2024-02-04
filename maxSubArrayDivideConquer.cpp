@@ -22,6 +22,10 @@ int maxarraysum(vector<int>&arr, int l, int r)
   {
     return arr[l];
   }
+  else if(l>r)
+  {
+    return 0;
+  }
   else
   {
     int mid = l+(r-l)/2;
