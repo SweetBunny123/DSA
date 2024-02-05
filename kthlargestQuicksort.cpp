@@ -1,7 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
+int find_rank(vector<int>&arr, int low, int high, int rank);
+int good_pivot(vector<int> &A,int left,int right);
 int partition(vector<int>& arr, int low, int high) {
-    int pivot = rand() % (high - low + 1) + low;
+    int pivot = good_pivot(arr,low,high);
     swap(arr[pivot], arr[high]);
     pivot = high;
     int i = low - 1;
@@ -14,7 +16,21 @@ int partition(vector<int>& arr, int low, int high) {
     swap(arr[i + 1], arr[high]);
     return i + 1;
 }
-
+int good_pivot(vector<int> &A, int l, int r) {
+  int m = (r - l + 1) / 5;
+  int i = l;
+  int j = l;
+  if (m > 1) {
+    while (i + 4 <= r) {
+      sort(A.begin() + i, A.begin() + i + 4);
+      swap(A[j], A[i + 2]);
+      ++j;
+      i += 5;
+    }
+    return find_rank(A, l, l + m - 1, m / 2);
+  }
+  return l;
+}
 int find_rank(vector<int>& arr, int low, int high, int rank) {
     if (low < high) {
         int k = partition(arr, low, high);
