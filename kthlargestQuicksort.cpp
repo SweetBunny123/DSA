@@ -1,12 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 int partition(vector<int>& arr, int low, int high) {
-    int pivot = random() % (high - low + 1) + low;
+    int pivot = rand() % (high - low + 1) + low;
     swap(arr[pivot], arr[high]);
     pivot = high;
     int i = low - 1;
     for (int j = low; j < high; j++) {
-        if (arr[j] < pivot) {
+        if (arr[j] < arr[pivot]) {
             i++;
             swap(arr[i], arr[j]);
         }

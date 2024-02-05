@@ -2,24 +2,22 @@
 using namespace std;
 int partition(vector<int>&arr, int l, int r);
 void quicksort(vector<int>&arr, int l, int r);
-int partition(vector<int>&arr, int l, int r)
-{
-  int pivot = random()%(r-l+1)+l;
-  swap(arr[pivot],arr[r]);
-  int i = l-1;
-  int j = l;
-  while(j<r)
-    {
-      if(arr[j]<arr[r])
-      {
-        i++;
-        swap(arr[i],arr[j]);
-      }
-      j++;
+
+int partition(vector<int>& arr, int low, int high) {
+    int pivot = rand() % (high - low + 1) + low;
+    swap(arr[pivot], arr[high]);
+    pivot = high;
+    int i = low - 1;
+    for (int j = low; j < high; j++) {
+        if (arr[j] < arr[pivot]) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
     }
-  swap(arr[i+1],arr[r]);
-  return i+1;
+    swap(arr[i + 1], arr[high]);
+    return i + 1;
 }
+
 void quicksort(vector<int>&arr, int l, int r)
 {
   if(l<r)
