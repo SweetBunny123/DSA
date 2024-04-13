@@ -2,7 +2,7 @@ class SegmentTree {
 public:
     SegmentTree(int N) {
         this->N = N;
-        int n = 2 * (1 << ((int)ceil(log(N) / log(2)) + 1));
+        int n = 10*N;
         this->tree = vector<int>(n);
     }
 
@@ -16,9 +16,9 @@ public:
             tree[i] = max(tree[i], val);
             return;
         }
-        int mid = s + (e - s) / 2;
-        updateUtil(i * 2, s, mid, L, R, val);
-        updateUtil(i * 2 + 1, mid + 1, e, L, R, val);
+        int mid = (s+e)/ 2;
+        updateUtil(i * 2+1, s, mid, L, R, val);
+        updateUtil(i * 2 + 2, mid + 1, e, L, R, val);
     }
 
     int query(int index) {
@@ -27,8 +27,8 @@ public:
 
     int queryUtil(int i, int s, int e, int index) {
         if (s == e) return tree[i];
-        int mid = s + (e - s) / 2;
-        int ret = index <= mid ? queryUtil(i * 2, s, mid, index) : queryUtil(i * 2 + 1, mid + 1, e, index);
+        int mid = (s+e)/ 2;
+        int ret = index <= mid ? queryUtil(i * 2+1, s, mid, index) : queryUtil(i * 2 + 2, mid + 1, e, index);
         return max(ret, tree[i]);
     }
 

@@ -93,7 +93,7 @@ void preOrderTraversal2(struct bintree* node)
     cout<<node->data<<" inserted ";
     preOrderTraversal2(node->left);
     preOrderTraversal2(node->right);
-    cout<<node->data<<" deleted ";
+
   }
 }
 
